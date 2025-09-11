@@ -27,11 +27,28 @@ const Consultation: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
-    }, 3000);
+    
+    // Create FormData object for Netlify
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as any).toString()
+    })
+    .then(() => {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    });
   };
 
   return (
@@ -128,11 +145,7 @@ const Consultation: React.FC = () => {
                 {!isSubmitted ? (
                   <form 
                     onSubmit={handleSubmit} 
-                    className="space-y-6" 
-                    name="consultation" 
-                    method="POST" 
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
+                    className="space-y-6"
                   >
                     <input type="hidden" name="form-name" value="consultation" />
                     <div style={{ display: 'none' }}>
