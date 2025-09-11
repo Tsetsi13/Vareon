@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4" />
-                <span>support@vereon.com</span>
+                <span>support@vareonflow.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4" />
