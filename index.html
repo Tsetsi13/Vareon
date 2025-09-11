@@ -11,13 +11,13 @@
     <div id="root"></div>
     
     <!-- Hidden form for Netlify form detection -->
-    <form name="consultation" netlify netlify-honeypot="bot-field" hidden>
+    <form name="consultation" netlify netlify-honeypot="bot-field" hidden action="/thank-you">
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="selectedService" />
       <input type="text" name="companyName" />
       <textarea name="problems"></textarea>
-      <textarea name="additionalInfo"></textarea>
+      <input type="submit" value="Submit" />
     </form>
     
     <script type="module" src="/src/main.tsx"></script>
