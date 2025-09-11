@@ -1,4 +1,4 @@
-# Vereon - AI Automation & Lead Generation
+# Vareon - AI Automation & Lead Generation
 
 A modern React application built with TypeScript, Vite, and Tailwind CSS for AI automation services.
 
@@ -76,4 +76,4 @@ src/
 
 ## License
 
-© 2025 Vereon. All rights reserved.
+© 2025 Vareon. All rights reserved.

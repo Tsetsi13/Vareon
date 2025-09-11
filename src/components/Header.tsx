@@ -25,7 +25,7 @@ const Header: React.FC = () => {
               <div className="absolute inset-0 bg-blue-500 blur-lg opacity-30 animate-pulse"></div>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Vereon
+              Vareon
             </span>
           </Link>
 
