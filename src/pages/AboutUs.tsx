@@ -72,7 +72,7 @@ const AboutUs: React.FC = () => {
           {/* Hero Section */}
           <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About Vareon
+              About VareonFlow
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               We help businesses harness the power of AI to automate processes, generate leads, and scale operations—all without the complexity.
@@ -191,7 +191,7 @@ const AboutUs: React.FC = () => {
           <div className="text-center mt-16">
             <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join hundreds of businesses that trust Vareon to automate their operations and accelerate growth.
+              Join hundreds of businesses that trust VareonFlow to automate their operations and accelerate growth.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Link

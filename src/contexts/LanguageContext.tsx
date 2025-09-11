@@ -110,7 +110,7 @@ const translations = {
     'consultation.contactSoon': 'Our team will contact you within 24 hours to schedule your free consultation.',
     
     // About Us Page
-    'aboutUs.title': 'About Vareon',
+    'aboutUs.title': 'About VareonFlow',
     'aboutUs.subtitle': 'We\'re on a mission to democratize AI automation, helping businesses of all sizes harness the power of artificial intelligence to scale operations, increase efficiency, and drive sustainable growth.',
     'aboutUs.mission': 'Our Mission',
     'aboutUs.missionText': 'At Vareon Flow, we believe that every business deserves access to cutting-edge AI technology. Our mission is to bridge the gap between complex artificial intelligence and practical business applications, making advanced automation accessible, affordable, and effective for companies ready to embrace the future of work.',
@@ -130,12 +130,12 @@ const translations = {
     'aboutUs.accessibility': 'Accessibility',
     'aboutUs.accessibilityDesc': 'We make advanced AI automation accessible to businesses of all sizes, democratizing the power of artificial intelligence.',
     'aboutUs.whyChoose': 'Why Choose Vereon',
-    'aboutUs.whyChoose': 'Why Choose Vareon',
+    'aboutUs.whyChoose': 'Why Choose VareonFlow',
     'aboutUs.expertTeam': 'Expert Team',
     'aboutUs.expertTeamDesc': 'Our team combines deep AI expertise with practical business experience. We\'re engineers, data scientists, and business strategists united by a passion for helping businesses succeed through intelligent automation.',
     'aboutUs.readyTransform': 'Ready to Transform Your Business?',
     'aboutUs.joinBusinesses': 'Join hundreds of businesses that trust Vereon to automate their operations and accelerate growth.',
-    'aboutUs.joinBusinesses': 'Join hundreds of businesses that trust Vareon to automate their operations and accelerate growth.',
+    'aboutUs.joinBusinesses': 'Join hundreds of businesses that trust VareonFlow to automate their operations and accelerate growth.',
     'aboutUs.backToHome': 'Back to Home',
     
     // How It Works Page
@@ -311,7 +311,7 @@ const translations = {
     'consultation.contactSoon': 'Η ομάδα μας θα επικοινωνήσει μαζί σας εντός 24 ωρών για να προγραμματίσουμε τη δωρεάν συμβουλευτική σας.',
     
     // About Us Page
-    'aboutUs.title': 'Σχετικά με το Vareon',
+    'aboutUs.title': 'Σχετικά με το VareonFlow',
     'aboutUs.subtitle': 'Έχουμε την αποστολή να δημοκρατοποιήσουμε τον αυτοματισμό AI, βοηθώντας επιχειρήσεις κάθε μεγέθους να αξιοποιήσουν τη δύναμη της τεχνητής νοημοσύνης για να κλιμακώσουν τις λειτουργίες, να αυξήσουν την αποδοτικότητα και να οδηγήσουν τη βιώσιμη ανάπτυξη.',
     'aboutUs.mission': 'Η Αποστολή μας',
     'aboutUs.missionText': 'Στο Vareon Flow, πιστεύουμε ότι κάθε επιχείρηση αξίζει πρόσβαση σε τεχνολογία AI αιχμής. Η αποστολή μας είναι να γεφυρώσουμε το χάσμα μεταξύ της πολύπλοκης τεχνητής νοημοσύνης και των πρακτικών επιχειρηματικών εφαρμογών, κάνοντας τον προηγμένο αυτοματισμό προσβάσιμο, οικονομικό και αποτελεσματικό για εταιρείες έτοιμες να αγκαλιάσουν το μέλλον της εργασίας.',
@@ -331,12 +331,12 @@ const translations = {
     'aboutUs.accessibility': 'Προσβασιμότητα',
     'aboutUs.accessibilityDesc': 'Κάνουμε τον προηγμένο αυτοματισμό AI προσβάσιμο σε επιχειρήσεις κάθε μεγέθους, δημοκρατοποιώντας τη δύναμη της τεχνητής νοημοσύνης.',
     'aboutUs.whyChoose': 'Γιατί να Επιλέξετε το Vereon',
-    'aboutUs.whyChoose': 'Γιατί να Επιλέξετε το Vareon',
+    'aboutUs.whyChoose': 'Γιατί να Επιλέξετε το VareonFlow',
     'aboutUs.expertTeam': 'Ειδική Ομάδα',
     'aboutUs.expertTeamDesc': 'Η ομάδα μας συνδυάζει βαθιά εμπειρογνωμοσύνη AI με πρακτική επιχειρηματική εμπειρία. Είμαστε μηχανικοί, επιστήμονες δεδομένων και επιχειρηματικοί στρατηγιστές ενωμένοι από το πάθος για να βοηθήσουμε τις επιχειρήσεις να πετύχουν μέσω έξυπνου αυτοματισμού.',
     'aboutUs.readyTransform': 'Έτοιμοι να Μεταμορφώσετε την Επιχείρησή σας;',
     'aboutUs.joinBusinesses': 'Ενταχθείτε σε εκατοντάδες επιχειρήσεις που εμπιστεύονται το Vereon για να αυτοματοποιήσουν τις λειτουργίες τους και να επιταχύνουν την ανάπτυξη.',
-    'aboutUs.joinBusinesses': 'Ενταχθείτε σε εκατοντάδες επιχειρήσεις που εμπιστεύονται το Vareon για να αυτοματοποιήσουν τις λειτουργίες τους και να επιταχύνουν την ανάπτυξη.',
+    'aboutUs.joinBusinesses': 'Ενταχθείτε σε εκατοντάδες επιχειρήσεις που εμπιστεύονται το VareonFlow για να αυτοματοποιήσουν τις λειτουργίες τους και να επιταχύνουν την ανάπτυξη.',
     'aboutUs.backToHome': 'Επιστροφή στην Αρχική',
     
     // How It Works Page
