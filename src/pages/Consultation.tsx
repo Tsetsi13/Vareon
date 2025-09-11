@@ -27,8 +27,28 @@ const Consultation: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
+    
+    // Send form data to Formspree (replace with your form endpoint)
+    fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => {
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
+        }, 3000);
+      }
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+    });
+  };
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -128,7 +148,8 @@ const Consultation: React.FC = () => {
                 </div>
 
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" name="consultation" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="consultation" />
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
                         {t('consultation.fullName')} *
