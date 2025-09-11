@@ -27,27 +27,11 @@ const Consultation: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Send form data to Formspree (replace with your form endpoint)
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-    .then(response => {
-      if (response.ok) {
-        setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
-        }, 3000);
-      }
-    })
-    .catch(error => {
-      console.error('Error submitting form:', error);
-    });
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
+    }, 3000);
   };
 
   return (
@@ -142,7 +126,7 @@ const Consultation: React.FC = () => {
                 </div>
 
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6" name="consultation" method="POST" data-netlify="true">
+                  <form onSubmit={handleSubmit} className="space-y-6" name="consultation" method="POST" netlify>
                     <input type="hidden" name="form-name" value="consultation" />
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -151,6 +135,7 @@ const Consultation: React.FC = () => {
                       <input
                         type="text"
                         required
+                        name="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
@@ -167,6 +152,7 @@ const Consultation: React.FC = () => {
                         <input
                           type="email"
                           required
+                          name="email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
@@ -182,6 +168,7 @@ const Consultation: React.FC = () => {
                       <div className="relative">
                         <select
                           required
+                          name="selectedService"
                           value={formData.selectedService}
                           onChange={(e) => setFormData({ ...formData, selectedService: e.target.value })}
                           className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none"
@@ -203,6 +190,7 @@ const Consultation: React.FC = () => {
                         <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                         <input
                           type="text"
+                          name="companyName"
                           value={formData.companyName}
                           onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
@@ -216,6 +204,7 @@ const Consultation: React.FC = () => {
                         {t('consultation.tellUsNeeds')}
                       </label>
                       <textarea
+                        name="problems"
                         value={formData.problems}
                         onChange={(e) => setFormData({ ...formData, problems: e.target.value })}
                         rows={4}
