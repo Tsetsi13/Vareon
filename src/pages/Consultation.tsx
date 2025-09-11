@@ -126,8 +126,9 @@ const Consultation: React.FC = () => {
                 </div>
 
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6" name="consultation" method="POST" netlify>
+                  <form onSubmit={handleSubmit} className="space-y-6" name="consultation" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="consultation" />
+                    <input type="hidden" name="bot-field" />
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
                         {t('consultation.fullName')} *
