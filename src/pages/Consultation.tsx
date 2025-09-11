@@ -49,12 +49,6 @@ const Consultation: React.FC = () => {
       console.error('Error submitting form:', error);
     });
   };
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
-    }, 3000);
-  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
