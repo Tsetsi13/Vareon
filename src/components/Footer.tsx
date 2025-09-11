@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import VareonFlowLogo from './VareonFlowLogo';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -12,10 +13,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="relative">
-                <Bot className="w-8 h-8 text-blue-500" />
-                <div className="absolute inset-0 bg-blue-500 blur-lg opacity-30 animate-pulse"></div>
-              </div>
+              <VareonFlowLogo className="w-8 h-8" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 VareonFlow
               </span>
