@@ -33,7 +33,7 @@ const Consultation: React.FC = () => {
     const formData = new FormData(form);
     
     // Submit to Netlify
-    fetch('/', {
+    fetch(window.location.origin + '/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData as any).toString()
