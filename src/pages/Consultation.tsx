@@ -152,6 +152,15 @@ const Consultation: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="text-center">
+                <a
+                  href="/contact.html"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-semibold text-lg hover:from-green-500 hover:to-emerald-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-green-500/25"
+                >
+                  Try Simple Form
+                </a>
+              </div>
             </div>
 
             {/* Form */}
