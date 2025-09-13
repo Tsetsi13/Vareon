@@ -35,7 +35,10 @@ const Consultation: React.FC = () => {
     // Submit to Netlify
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+      },
       body: new URLSearchParams(formData as any).toString()
     })
     .then(() => {
@@ -47,7 +50,26 @@ const Consultation: React.FC = () => {
     })
     .catch((error) => {
       console.error('Form submission error:', error);
-      alert('There was an error submitting the form. Please try again.');
+      // Fallback: try submitting to the Netlify default domain
+      const fallbackUrl = 'https://famous-pavlova-92c331.netlify.app/';
+      fetch(fallbackUrl, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        },
+        body: new URLSearchParams(formData as any).toString()
+      })
+      .then(() => {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
+        }, 3000);
+      })
+      .catch(() => {
+        alert('There was an error submitting the form. Please try again or contact us directly.');
+      });
     });
   };
 
