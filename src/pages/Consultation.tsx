@@ -163,127 +163,14 @@ const Consultation: React.FC = () => {
               </div>
             </div>
 
-            {/* Form */}
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-2xl"></div>
-              
-              <div className="relative">
-                <div className="flex items-center space-x-3 mb-8">
-                  <Calendar className="w-6 h-6 text-blue-400" />
-                  <h3 className="text-2xl font-bold text-white">{t('consultation.scheduleCall')}</h3>
-                </div>
-
-                {!isSubmitted ? (
-                  <form 
-                    name="consultation"
-                    method="POST"
-                   action="/contact.html"
-                    className="space-y-6"
-                  >
-                   <input type="hidden" name="form-name" value="consultation" />
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('consultation.fullName')} *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        name="name"
-                        className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-                        placeholder={t('consultation.fullName')}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('consultation.email')} *
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <input
-                          type="email"
-                          required
-                          name="email"
-                          className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-                          placeholder="john@company.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('consultation.selectedService')} *
-                      </label>
-                      <div className="relative">
-                        <select
-                          required
-                          name="selectedService"
-                          className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none"
-                        >
-                          <option value="">{t('consultation.selectService')}</option>
-                          {services.map((service) => (
-                            <option key={service} value={service}>{service}</option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('consultation.companyName')}
-                      </label>
-                      <div className="relative">
-                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <input
-                          type="text"
-                          name="companyName"
-                          className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
-                          placeholder={t('consultation.companyName')}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('consultation.tellUsNeeds')}
-                      </label>
-                      <textarea
-                        name="problems"
-                        rows={4}
-                        className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
-                        placeholder={t('consultation.needsPlaceholder')}
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/25"
-                    >
-                      {t('consultation.scheduleConsultation')}
-                    </button>
-
-                    <p className="text-xs text-gray-400 text-center">
-                      {t('consultation.disclaimer')}
-                    </p>
-                  </form>
-                ) : (
-                  <div className="text-center py-12 animate-fade-in">
-                    <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <h4 className="text-2xl font-bold text-white mb-4">{t('consultation.thankYou')}</h4>
-                    <p className="text-gray-300 mb-2">
-                      {t('consultation.received')}
-                    </p>
-                    <p className="text-gray-400 text-sm">
-                      {t('consultation.contactSoon')}
-                    </p>
-                  </div>
-                )}
-              </div>
+            {/* Simple Form Button */}
+            <div className="text-center">
+              <a
+                href="/contact.html"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
+              >
+                Book Your Free Call
+              </a>
             </div>
           </div>
         </div>

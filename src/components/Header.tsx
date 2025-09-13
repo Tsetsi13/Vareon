@@ -64,7 +64,7 @@ const Header: React.FC = () => {
               {t('nav.howItWorks')}
             </Link>
             <Link
-              to="/consultation"
+              to="/contact.html"
               className="relative px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
               {t('nav.bookCall')}
@@ -124,7 +124,7 @@ const Header: React.FC = () => {
               </Link>
               <div className="flex justify-center px-3 py-4">
                 <Link
-                  to="/consultation"
+                  to="/contact.html"
                   className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
