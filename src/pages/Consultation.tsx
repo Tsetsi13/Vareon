@@ -177,16 +177,10 @@ const Consultation: React.FC = () => {
                   <form 
                     name="consultation"
                     method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
+                   action="/contact.html"
                     className="space-y-6"
                   >
-                    <div style={{ display: 'none' }}>
-                      <label>
-                        Don't fill this out if you're human: <input name="bot-field" />
-                      </label>
-                    </div>
+                   <input type="hidden" name="form-name" value="consultation" />
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
                         {t('consultation.fullName')} *
@@ -195,8 +189,6 @@ const Consultation: React.FC = () => {
                         type="text"
                         required
                         name="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                         placeholder={t('consultation.fullName')}
                       />
@@ -212,8 +204,6 @@ const Consultation: React.FC = () => {
                           type="email"
                           required
                           name="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                           placeholder="john@company.com"
                         />
@@ -228,8 +218,6 @@ const Consultation: React.FC = () => {
                         <select
                           required
                           name="selectedService"
-                          value={formData.selectedService}
-                          onChange={(e) => setFormData({ ...formData, selectedService: e.target.value })}
                           className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 appearance-none"
                         >
                           <option value="">{t('consultation.selectService')}</option>
@@ -250,8 +238,6 @@ const Consultation: React.FC = () => {
                         <input
                           type="text"
                           name="companyName"
-                          value={formData.companyName}
-                          onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                           className="w-full pl-11 pr-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
                           placeholder={t('consultation.companyName')}
                         />
@@ -264,8 +250,6 @@ const Consultation: React.FC = () => {
                       </label>
                       <textarea
                         name="problems"
-                        value={formData.problems}
-                        onChange={(e) => setFormData({ ...formData, problems: e.target.value })}
                         rows={4}
                         className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
                         placeholder={t('consultation.needsPlaceholder')}
