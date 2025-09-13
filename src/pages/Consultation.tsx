@@ -166,7 +166,7 @@ const Consultation: React.FC = () => {
             {/* Simple Form Button */}
             <div className="text-center">
               <a
-                href="/contact.html"
+                to="/contact"
                 className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
               >
                 Book Your Free Call

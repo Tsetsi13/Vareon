@@ -13,6 +13,7 @@ import LeadCaptureCRMIntegration from './pages/features/LeadCaptureCRMIntegratio
 import AIAppointmentSetting from './pages/features/AIAppointmentSetting.tsx';
 import WorkflowAutomation from './pages/features/WorkflowAutomation.tsx';
 import WorkflowSocialAutomation from './pages/features/WorkflowSocialAutomation.tsx';
+import Contact from './pages/Contact.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import './index.css';
 
@@ -34,6 +35,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/consultation" element={<Consultation />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/features/ai-chat-agent" element={<AIChatAgent />} />
