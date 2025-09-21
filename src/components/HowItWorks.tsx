@@ -41,10 +41,10 @@ const HowItWorks: React.FC = () => {
     <section id="how-it-works" className="py-20 bg-gray-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             How It Works
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8 px-4">
             Our 4-step process makes AI automation easy, fast, and results-driven.
           </p>
           <Link
@@ -68,7 +68,7 @@ const HowItWorks: React.FC = () => {
               <Search className="w-8 h-8 text-white" />
             </div>
             
-            <h3 className="text-xl font-bold text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
               Discovery & Analysis
             </h3>
             

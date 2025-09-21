@@ -83,10 +83,10 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-800/95 backdrop-blur-sm border-t border-gray-700 animate-fade-in">
+          <div className="md:hidden bg-gray-800/95 backdrop-blur-sm border-t border-gray-700 animate-fade-in absolute top-16 left-0 right-0 z-40">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
-                to="/consultation"
+                to="/about-us"
                 className="block px-3 py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -124,7 +124,7 @@ const Header: React.FC = () => {
               </Link>
               <div className="flex justify-center px-3 py-4">
                 <Link
-                  to="/contact"
+                  to="/consultation"
                   className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >

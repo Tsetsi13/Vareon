@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             Scale Faster with
             <span className="block bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent animate-gradient-x">
               AI Automation
@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Subtext */}
-          <p className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-300 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed px-4">
             Let intelligent AI chat agents and automated workflows handle leads, bookings, and customer support so your business grows effortlessly around the clock.
           </p>
 
@@ -94,22 +94,22 @@ const Hero: React.FC = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 1-4 weeks
               </div>
-              <div className="text-gray-400 mt-2">Implementation Time</div>
+              <div className="text-gray-400 mt-2 text-sm sm:text-base">Implementation Time</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 300%
               </div>
-              <div className="text-gray-400 mt-2">{t('hero.stat2')}</div>
+              <div className="text-gray-400 mt-2 text-sm sm:text-base">{t('hero.stat2')}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                 24/7
               </div>
-              <div className="text-gray-400 mt-2">{t('hero.stat3')}</div>
+              <div className="text-gray-400 mt-2 text-sm sm:text-base">{t('hero.stat3')}</div>
             </div>
           </div>
         </div>

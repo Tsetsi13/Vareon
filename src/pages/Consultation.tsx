@@ -111,13 +111,13 @@ const Consultation: React.FC = () => {
       <main className="pt-16 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
               {t('consultation.title')}
               <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 {t('consultation.titleHighlight')}
               </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto px-4">
               Tell us about your business needs, and we'll create a custom AI automation solution designed to solve your challenges and accelerate growth.
             </p>
           </div>
@@ -169,15 +169,15 @@ const Consultation: React.FC = () => {
               <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-blue-400 mb-1">15 min</div>
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">15 min</div>
                     <div className="text-gray-300 text-sm">Quick call</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-400 mb-1">Free</div>
+                    <div className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">Free</div>
                     <div className="text-gray-300 text-sm">No cost</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-green-400 mb-1">24h</div>
+                    <div className="text-xl sm:text-2xl font-bold text-green-400 mb-1">24h</div>
                     <div className="text-gray-300 text-sm">Response time</div>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const Consultation: React.FC = () => {
 
             {/* Form */}
             <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <h2 className="text-2xl font-bold text-white mb-6">{t('consultation.scheduleCall')}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">{t('consultation.scheduleCall')}</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

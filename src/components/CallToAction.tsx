@@ -12,11 +12,11 @@ const CallToAction: React.FC = () => {
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <div className="animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Transform Your Business?
           </h2>
           
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-4">
             Don't wait. Join hundreds of businesses already growing with AI automation. Book your free consultation now and see how fast your business can scale.
           </p>
 
@@ -41,16 +41,16 @@ const CallToAction: React.FC = () => {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-4">
-              <div className="text-2xl font-bold text-blue-400 mb-2">15 min</div>
-              <div className="text-gray-300">{t('cta.stat1')}</div>
+              <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-2">15 min</div>
+              <div className="text-gray-300 text-sm sm:text-base">{t('cta.stat1')}</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl font-bold text-purple-400 mb-2">Custom</div>
-              <div className="text-gray-300">{t('cta.stat2')}</div>
+              <div className="text-xl sm:text-2xl font-bold text-purple-400 mb-2">Custom</div>
+              <div className="text-gray-300 text-sm sm:text-base">{t('cta.stat2')}</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl font-bold text-green-400 mb-2">ROI</div>
-              <div className="text-gray-300">{t('cta.stat3')}</div>
+              <div className="text-xl sm:text-2xl font-bold text-green-400 mb-2">ROI</div>
+              <div className="text-gray-300 text-sm sm:text-base">{t('cta.stat3')}</div>
             </div>
           </div>
         </div>
