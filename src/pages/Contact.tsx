@@ -12,6 +12,29 @@ const Contact: React.FC = () => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     
+    // Prepare data for webhook
+    const webhookData = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      selectedService: formData.get('selectedService'),
+      companyName: formData.get('companyName'),
+      problems: formData.get('problems'),
+      timestamp: new Date().toISOString(),
+      source: 'VareonFlow Website'
+    };
+    
+    // Send to Make.com webhook
+    fetch('https://hook.eu2.make.com/5nolgsek2mjn6fhf5ohvq5ii1ij8r7k7', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(webhookData)
+    }).catch(error => {
+      console.error('Webhook error:', error);
+      // Don't block form submission if webhook fails
+    });
+    
     // Submit to Netlify
     fetch('/', {
       method: 'POST',
