@@ -32,6 +32,7 @@ const Consultation: React.FC = () => {
     
     // Prepare data for webhook
     const webhookData = {
+      id: crypto.randomUUID(),
       name: formData.name,
       email: formData.email,
       selectedService: formData.selectedService,
