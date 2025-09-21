@@ -14,6 +14,9 @@ import AIAppointmentSetting from './pages/features/AIAppointmentSetting.tsx';
 import WorkflowAutomation from './pages/features/WorkflowAutomation.tsx';
 import WorkflowSocialAutomation from './pages/features/WorkflowSocialAutomation.tsx';
 import AboutUs from './pages/AboutUs.tsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.tsx';
+import TermsOfService from './pages/TermsOfService.tsx';
+import CookiePolicy from './pages/CookiePolicy.tsx';
 import './index.css';
 
 function ScrollToTop() {
@@ -37,6 +40,9 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/contact" element={<Consultation />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="/features/ai-chat-agent" element={<AIChatAgent />} />
           <Route path="/features/ai-phone-callers" element={<AIPhoneCallers />} />
           <Route path="/features/ai-outreach-campaigns" element={<AIAutomatedOutreach />} />

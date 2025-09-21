@@ -70,15 +70,15 @@ const Footer: React.FC = () => {
             © 2025 VareonFlow. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
               {t('footer.privacy')}
-            </a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
               {t('footer.terms')}
-            </a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
+            </Link>
+            <Link to="/cookie-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-300">
               {t('footer.cookies')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
