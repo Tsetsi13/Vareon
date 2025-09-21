@@ -47,7 +47,6 @@ const Consultation: React.FC = () => {
     };
     
     const supabaseData: ConsultationData = {
-      id: consultationId,
       full_name: formData.name,
       Email: formData.email,
       selected_service: formData.selectedService,
