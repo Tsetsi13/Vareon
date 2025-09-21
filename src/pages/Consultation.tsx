@@ -15,6 +15,7 @@ const Consultation: React.FC = () => {
     additionalInfo: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const services = [
     'AI Automated Outreach',
@@ -25,53 +26,81 @@ const Consultation: React.FC = () => {
     'Workflow Automation'
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Create FormData object for Netlify
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
+    // Prepare data for webhook
+    const webhookData = {
+      name: formData.name,
+      email: formData.email,
+      selectedService: formData.selectedService,
+      companyName: formData.companyName,
+      problems: formData.problems,
+      additionalInfo: formData.additionalInfo,
+      timestamp: new Date().toISOString(),
+      source: 'VareonFlow Website - Consultation Form'
+    };
     
-    // Submit to Netlify
-    fetch('/', {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-      },
-      body: new URLSearchParams(formData as any).toString()
-    })
-    .then(() => {
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
-      }, 3000);
-    })
-    .catch((error) => {
-      console.error('Form submission error:', error);
-      // Fallback: try submitting to the Netlify default domain
-      const fallbackUrl = 'https://famous-pavlova-92c331.netlify.app/';
-      fetch(fallbackUrl, {
+    try {
+      // Send to Make.com webhook
+      await fetch('https://hook.eu2.make.com/5nolgsek2mjn6fhf5ohvq5ii1ij8r7k7', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+        headers: {
+          'Content-Type': 'application/json',
         },
-        body: new URLSearchParams(formData as any).toString()
-      })
-      .then(() => {
-        setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', selectedService: '', companyName: '', problems: '', additionalInfo: '' });
-        }, 3000);
-      })
-      .catch(() => {
-        alert('There was an error submitting the form. Please try again or contact us directly.');
+        body: JSON.stringify(webhookData)
       });
-    });
+      
+      setIsSubmitted(true);
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        selectedService: '',
+        companyName: '',
+        problems: '',
+        additionalInfo: ''
+      });
+    } catch (error) {
+      console.error('Webhook error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white">
+        <Header />
+        <div className="max-w-2xl mx-auto px-4 py-16 text-center">
+          <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h1 className="text-4xl font-bold text-white mb-6">{t('consultation.thankYou')}</h1>
+          <p className="text-xl text-gray-300 mb-4">{t('consultation.received')}</p>
+          <p className="text-gray-400 mb-8">{t('consultation.contactSoon')}</p>
+          <Link
+            to="/"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300"
+          >
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -152,25 +181,103 @@ const Consultation: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="text-center">
-                <a
-                  href="/contact.html"
-                  className="inline-block px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-semibold text-lg hover:from-green-500 hover:to-emerald-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-green-500/25"
-                >
-                  Try Simple Form
-                </a>
-              </div>
             </div>
 
-            {/* Simple Form Button */}
-            <div className="text-center">
-              <a
-                to="/contact"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
-              >
-                Book Your Free Call
-              </a>
+            {/* Form */}
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              <h2 className="text-2xl font-bold text-white mb-6">{t('consultation.scheduleCall')}</h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('consultation.fullName')} *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('consultation.email')} *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                    placeholder="john@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('consultation.selectedService')} *
+                  </label>
+                  <select
+                    name="selectedService"
+                    value={formData.selectedService}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                  >
+                    <option value="">{t('consultation.selectService')}</option>
+                    {services.map((service) => (
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('consultation.companyName')}
+                  </label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                    placeholder="Your company name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('consultation.tellUsNeeds')}
+                  </label>
+                  <textarea
+                    name="problems"
+                    value={formData.problems}
+                    onChange={handleInputChange}
+                    rows={4}
+                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none"
+                    placeholder={t('consultation.needsPlaceholder')}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Submitting...' : t('consultation.scheduleConsultation')}
+                </button>
+
+                <p className="text-xs text-gray-400 text-center">
+                  {t('consultation.disclaimer')}
+                </p>
+              </form>
             </div>
           </div>
         </div>

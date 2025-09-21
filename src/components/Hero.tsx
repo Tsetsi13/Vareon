@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Link
-              to="/contact"
+              to="/consultation"
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25"
             >
               <span className="flex items-center">
