@@ -60,11 +60,12 @@ const Consultation: React.FC = () => {
       // Save to Supabase first
       const { error: supabaseError } = await supabase
         .from('consultations')
-        .insert([supabaseData]);
+        .insert(supabaseData);
       
       if (supabaseError) {
         console.error('Supabase error:', supabaseError);
-        throw new Error('Failed to save to database');
+        // Don't throw error, continue with webhook
+        console.warn('Supabase save failed, continuing with webhook');
       }
       
       // Then send to Make.com webhook
