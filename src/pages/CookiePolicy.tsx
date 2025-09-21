@@ -134,7 +134,7 @@ const CookiePolicy: React.FC = () => {
                   If you have any questions about our use of cookies, please contact us at:
                 </p>
                 <div className="mt-4 p-4 bg-gray-800/50 rounded-lg">
-                  <p>Email: support@vareonflow.com</p>
+                  <p>Email: official@vareonflow.com</p>
                   <p>Phone: +30 6989498995</p>
                   <p>Address: Thessaloniki, Greece</p>
                 </div>
