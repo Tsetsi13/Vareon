@@ -16,6 +16,5 @@ export type ConsultationData = {
   selected_service: string
   company_name?: string
   problems?: string
-  additional_info?: string
   created_at?: string
 }

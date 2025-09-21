@@ -52,8 +52,7 @@ const Consultation: React.FC = () => {
       email: formData.email,
       selected_service: formData.selectedService,
       company_name: formData.companyName || null,
-      problems: formData.problems || null,
-      additional_info: formData.additionalInfo || null
+      problems: formData.problems || null
     };
     
     try {
