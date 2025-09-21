@@ -3,6 +3,7 @@ import { Calendar, Mail, Phone, Building, Bot, ChevronDown } from 'lucide-react'
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
+import { supabase, type ConsultationData } from '../lib/supabase';
 
 const Consultation: React.FC = () => {
   const { t } = useLanguage();
@@ -30,9 +31,11 @@ const Consultation: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Prepare data for webhook
+    const consultationId = crypto.randomUUID();
+    
+    // Prepare data for webhook and Supabase
     const webhookData = {
-      id: crypto.randomUUID(),
+      id: consultationId,
       name: formData.name,
       email: formData.email,
       selectedService: formData.selectedService,
@@ -43,15 +46,40 @@ const Consultation: React.FC = () => {
       source: 'VareonFlow Website - Consultation Form'
     };
     
+    const supabaseData: ConsultationData = {
+      id: consultationId,
+      name: formData.name,
+      email: formData.email,
+      selected_service: formData.selectedService,
+      company_name: formData.companyName || null,
+      problems: formData.problems || null,
+      additional_info: formData.additionalInfo || null
+    };
+    
     try {
-      // Send to Make.com webhook
-      await fetch('https://hook.eu2.make.com/5nolgsek2mjn6fhf5ohvq5ii1ij8r7k7', {
+      // Save to Supabase first
+      const { error: supabaseError } = await supabase
+        .from('consultations')
+        .insert([supabaseData]);
+      
+      if (supabaseError) {
+        console.error('Supabase error:', supabaseError);
+        throw new Error('Failed to save to database');
+      }
+      
+      // Then send to Make.com webhook
+      const webhookResponse = await fetch('https://hook.eu2.make.com/5nolgsek2mjn6fhf5ohvq5ii1ij8r7k7', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(webhookData)
       });
+      
+      if (!webhookResponse.ok) {
+        console.error('Webhook error:', webhookResponse.statusText);
+        // Don't throw error here as Supabase save was successful
+      }
       
       setIsSubmitted(true);
       // Reset form
@@ -65,7 +93,7 @@ const Consultation: React.FC = () => {
       });
     } catch (error) {
       console.error('Webhook error:', error);
-      alert('There was an error submitting the form. Please try again.');
+      alert('There was an error submitting the form. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
