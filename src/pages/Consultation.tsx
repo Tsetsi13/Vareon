@@ -123,69 +123,9 @@ const Consultation: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Benefits */}
-            <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <div>
-                <h2 className="text-2xl font-bold text-white mb-6">{t('consultation.whatYouGet')}</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold">{t('consultation.customStrategy')}</h3>
-                      <p className="text-gray-400">{t('consultation.customStrategyDesc')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold">{t('consultation.roiAnalysis')}</h3>
-                      <p className="text-gray-400">{t('consultation.roiAnalysisDesc')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold">{t('consultation.implementationRoadmap')}</h3>
-                      <p className="text-gray-400">{t('consultation.implementationRoadmapDesc')}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-xl sm:text-2xl font-bold text-blue-400 mb-1">15 min</div>
-                    <div className="text-gray-300 text-sm">Quick call</div>
-                  </div>
-                  <div>
-                    <div className="text-xl sm:text-2xl font-bold text-purple-400 mb-1">Free</div>
-                    <div className="text-gray-300 text-sm">No cost</div>
-                  </div>
-                  <div>
-                    <div className="text-xl sm:text-2xl font-bold text-green-400 mb-1">24h</div>
-                    <div className="text-gray-300 text-sm">Response time</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Form */}
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <div className="lg:col-span-2">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 animate-fade-in-up max-w-2xl mx-auto">
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">{t('consultation.scheduleCall')}</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -279,6 +219,64 @@ const Consultation: React.FC = () => {
                   {t('consultation.disclaimer')}
                 </p>
               </form>
+              </div>
+            </div>
+          </div>
+
+          {/* Benefits - Now under the form */}
+          <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">{t('consultation.whatYouGet')}</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-white font-semibold mb-2">{t('consultation.customStrategy')}</h3>
+                <p className="text-gray-400 text-sm">{t('consultation.customStrategyDesc')}</p>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-white font-semibold mb-2">{t('consultation.roiAnalysis')}</h3>
+                <p className="text-gray-400 text-sm">{t('consultation.roiAnalysisDesc')}</p>
+              </div>
+              
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 text-center">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-white font-semibold mb-2">{t('consultation.implementationRoadmap')}</h3>
+                <p className="text-gray-400 text-sm">{t('consultation.implementationRoadmapDesc')}</p>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-400 mb-2">15 min</div>
+                  <div className="text-gray-300">Quick call</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">Free</div>
+                  <div className="text-gray-300">No cost</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">24h</div>
+                  <div className="text-gray-300">Response time</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
