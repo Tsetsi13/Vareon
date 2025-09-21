@@ -48,11 +48,11 @@ const Consultation: React.FC = () => {
     
     const supabaseData: ConsultationData = {
       id: consultationId,
-      name: formData.name,
-      email: formData.email,
+      full_name: formData.name,
+      Email: formData.email,
       selected_service: formData.selectedService,
       company_name: formData.companyName || null,
-      problems: formData.problems || null
+      Problem: formData.problems || null
     };
     
     try {

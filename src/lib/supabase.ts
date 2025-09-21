@@ -11,10 +11,10 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export type ConsultationData = {
   id?: string
-  name: string
-  email: string
+  full_name: string
+  Email: string
   selected_service: string
   company_name?: string
-  problems?: string
+  Problem?: string
   created_at?: string
 }
